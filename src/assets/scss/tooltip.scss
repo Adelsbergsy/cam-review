@@ -1,0 +1,51 @@
+.tooltip {
+    margin-top: 20px;
+    text-align: end;
+
+    .description {
+        position: relative;
+        font: {
+            weight: bold;
+            variant: small-caps;
+        }
+        text-decoration: underline;
+
+        &::after {
+            content: attr(data-desc);
+            position: absolute;
+            font: {
+                weight: normal;
+                variant: normal;
+            }
+            text-decoration: none;
+            color: #fff;
+            text-align: center;
+            background-color: #0a0b1c;
+            border-radius: 20px;
+            padding: 10px 20px;
+            right: calc(100% + 1px);
+            top: -75%;
+            width: 300px;
+            z-index: -1;
+            visibility: hidden;
+            opacity: 0;
+            transition: all ease-in-out 100ms;
+            &::selection {
+                color: aqua;
+            }
+        }
+
+        &:hover {
+            text-decoration: none;
+            color: #c217a5;
+            cursor: default;
+
+            &::after {
+                z-index: 100;
+                visibility: visible;
+                opacity: 100%;
+                right: calc(100% + 10px);
+            }
+        }
+    }
+}

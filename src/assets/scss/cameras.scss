@@ -1,0 +1,48 @@
+@import url(tooltip.scss);
+
+.cameras {
+    margin-top: 100px;
+
+    .camera-info {
+        margin-bottom: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        &__container {
+            flex-basis: 60%;
+
+            &__table {
+                border-collapse: collapse;
+
+                td {
+                    border-bottom: 1px grey solid;
+                }
+
+                td:first-child {
+                    border-right: 1px grey solid;
+                }
+
+                tr:last-child td {
+                    border-bottom: none;
+                }
+            }
+        }
+
+        &__image {
+            flex-basis: content;
+            margin-left: 30px;
+            text-align: center;
+
+            img {
+                height: 300px;
+                width: 300px;
+                transition: all 1s;
+
+                &:hover {
+                    transform: scale(1.1) skewX(-2deg);
+                }
+            }
+        }
+    }
+}

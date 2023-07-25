@@ -1,0 +1,58 @@
+.navbar {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid #0d1e40;
+    background-color: #0e1729;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    margin-bottom: 400px;
+
+    .revbar__list__item,
+    .navbar__list__item {
+        margin-bottom: 10px;
+    }
+
+    a {
+        display: inline-block;
+        text-decoration: none;
+        color: #fff;
+        transition: all 200ms ease-in-out;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:hover {
+            color: #c217a5;
+        }
+    }
+    &__title {
+        margin-bottom: 30px;
+        color: lightgoldenrodyellow;
+    }
+
+    &__back-link {
+        margin-top: 20px;
+
+        a {
+            font-weight: bold;
+        }
+
+        &:hover a {
+            text-shadow: 1px 1px 9px purple;
+            color: #fff;
+        }
+    }
+
+    &__current-review {
+        margin-bottom: 20px;
+
+        &__title {
+            color: #b34282;
+            text-shadow: 0px 0px 5px darkviolet;
+        }
+    }
+}

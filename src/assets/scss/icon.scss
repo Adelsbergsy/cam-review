@@ -1,0 +1,46 @@
+.icon-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+
+    &__image {
+        height: 50px;
+        width: 50px;
+        animation: logoMove 3s linear infinite alternate;
+        @keyframes logoMove {
+            from {
+                margin-right: 0;
+            }
+            to {
+                margin-right: 150px;
+            }
+        }
+    }
+
+    &__text {
+        position: relative;
+        font-size: 22px;
+        color: #c217a5;
+
+        &:active {
+            color: yellow;
+            text-shadow: 1px 1px 5px red;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            height: 1px;
+            bottom: 0;
+            width: 0;
+            margin-bottom: -6px;
+            background-color: #000000;
+            transition: all 90ms ease-out;
+        }
+
+        &:hover::before {
+            width: 100%;
+        }
+    }
+}
