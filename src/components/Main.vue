@@ -37,7 +37,7 @@ onMounted(() => {
             <div
                 class="jarallax aside-parallax"
                 data-jarallax
-                data-video-src="mp4:/src/assets/images/video_2023-07-24_19-22-02.mp4"
+                data-video-src="mp4:/video_2023-07-24_19-22-02.mp4"
                 id="teleportedVideo"
             ></div>
             <div class="jarallax aside-parallax" id="teleportedImage2"></div
