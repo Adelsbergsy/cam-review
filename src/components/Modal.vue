@@ -15,7 +15,7 @@ const modalWindow = ref(null);
 const overlay = ref(null);
 const closeButton = ref(null);
 const body = document.querySelector('body');
-// onMounted(() => setTimeout(() => console.log(props.authorVNode), 1));
+
 onMounted(() => {
     closeButton.value.addEventListener('click', () => {
         tmp.value = false;

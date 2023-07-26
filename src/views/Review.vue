@@ -1,7 +1,7 @@
 <script setup>
-import { computed } from 'vue';
-import { useRoute } from 'vue-router';
-import Review from '../components/Review.vue';
+// import { computed } from 'vue';
+// import { useRoute } from 'vue-router';
+import RevFill from '../components/ReviewFilling.vue';
 
 // const route = useRoute();
 // const currentRouteName = computed(() => route.name);
@@ -11,5 +11,5 @@ emit('update', false);
 </script>
 
 <template>
-    <Review></Review>
+    <RevFill></RevFill>
 </template>

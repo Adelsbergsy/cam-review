@@ -5,7 +5,6 @@ const props = defineProps({
     navbarType: Boolean,
     reviewNames: Array,
 });
-//console.log(props.navbarType);
 </script>
 
 <template>
@@ -13,11 +12,11 @@ const props = defineProps({
         <template v-if="props.navbarType">
             <nav class="navbar">
                 <h2 class="navbar__title">Обзоры</h2>
-                <!-- <a href="#" class="navbar__link">Сравнение Canon и Canon</a> -->
-                <!-- <a href="#" class="navbar__link">Test</a> -->
                 <ul class="revbar__list">
                     <li class="revbar__list__item">
-                        <router-link to="/1">{{ reviewNames[0] }}</router-link>
+                        <router-link to="/review_1">{{
+                            reviewNames[0]
+                        }}</router-link>
                     </li>
                     <!-- /.revbar__link -->
                 </ul>
@@ -34,13 +33,13 @@ const props = defineProps({
                 </div>
                 <ul class="navbar__list">
                     <li class="navbar__list__item">
-                        <a href="#About-author" class="navbar__list__item__link"
+                        <a href="#about-author" class="navbar__list__item__link"
                             >Об авторе</a
                         >
                     </li>
                     <li class="navbar__list__item">
                         <a
-                            href="#Cameras-characteristics"
+                            href="#cameras-characteristics"
                             class="navbar__list__item__link"
                             >Характеристики обозреваемых фотоаппаратов</a
                         >
