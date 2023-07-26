@@ -44,7 +44,7 @@ onMounted(() => {
                 <Icon></Icon>
             </div>
             <button ref="closeButton" class="modal__window__button">
-                <img src="/close.svg" alt="X" />
+                <img src="/src/assets/images/close.svg" alt="X" />
             </button>
         </div>
         <div ref="overlay" class="modal__overlay"></div>

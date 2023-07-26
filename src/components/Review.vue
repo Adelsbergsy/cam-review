@@ -21,7 +21,7 @@ onMounted(() => {
         <article class="author-info">
             <h5 class="review-title" id="about-author">Об авторе</h5>
             <img
-                src="/author.jpg"
+                src="/src/assets/images/author.jpg"
                 alt="review author"
                 title="Показать контакты автора"
                 class="author-info_image"
@@ -104,7 +104,10 @@ onMounted(() => {
                     </table>
                 </div>
                 <figure class="camera-info__image">
-                    <img src="/eos2000d.webp" alt="Canon EOS 2000D" />
+                    <img
+                        src="/src/assets/images/eos2000d.webp"
+                        alt="Canon EOS 2000D"
+                    />
                     <figcaption>Canon EOS 2000D</figcaption>
                 </figure>
             </article>
@@ -215,7 +218,10 @@ onMounted(() => {
                     </table>
                 </div>
                 <figure class="camera-info__image">
-                    <img src="/eos90d.webp" alt="Canon EOS 90D" />
+                    <img
+                        src="/src/assets/images/eos90d.webp"
+                        alt="Canon EOS 90D"
+                    />
                     <figcaption>Canon EOS 90D</figcaption>
                 </figure>
             </article>

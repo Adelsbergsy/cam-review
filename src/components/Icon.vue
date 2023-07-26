@@ -3,7 +3,7 @@
 <template>
     <a href="https://www.instagram.com/preda10r" class="icon-link">
         <img
-            src="logo-instagram.svg"
+            src="/src/assets/images/logo-instagram.svg"
             alt="instagram"
             class="icon-link__image"
         />
