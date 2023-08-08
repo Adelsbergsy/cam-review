@@ -1,22 +1,21 @@
 <script setup>
-import { computed } from 'vue';
+import { computed, inject } from 'vue';
 
 const props = defineProps({
-    navbarType: Boolean,
-    reviewNames: Array,
+    navbarType: String,
 });
+
+const reviewNames = inject('reviewNames', ['Первая статья']);
 </script>
 
 <template>
     <div class="navbar-container">
-        <template v-if="props.navbarType">
+        <template v-if="props.navbarType === 'home'">
             <nav class="navbar">
                 <h2 class="navbar__title">Обзоры</h2>
                 <ul class="revbar__list">
                     <li class="revbar__list__item">
-                        <router-link to="/review_1">{{
-                            reviewNames[0]
-                        }}</router-link>
+                        <router-link to="/1">{{ reviewNames[0] }}</router-link>
                     </li>
                     <!-- /.revbar__link -->
                 </ul>
@@ -24,7 +23,7 @@ const props = defineProps({
             </nav>
             <!-- <div id="teleport"></div> -->
         </template>
-        <template v-else>
+        <template v-else-if="props.navbarType === 'review'">
             <nav class="navbar">
                 <div class="navbar__current-review">
                     <h4 class="navbar__current-review__title">
@@ -55,8 +54,27 @@ const props = defineProps({
                 </div>
             </nav></template
         >
+        <template v-else>
+            <nav class="navbar error">
+                <div class="navbar__back-link">
+                    <router-link to="/"
+                        >Вернуться на главную страницу</router-link
+                    >
+                </div>
+            </nav>
+        </template>
         <div id="teleport"></div>
     </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.navbar__back-link {
+    margin-top: 0px;
+}
+</style>

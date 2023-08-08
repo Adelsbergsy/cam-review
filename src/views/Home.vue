@@ -1,11 +1,12 @@
 <script setup>
 import Main from '../components/Main.vue';
+import Navbar from '../components/Navbar.vue';
 
-const emit = defineEmits(['update']);
-emit('update', true);
+const pageType = 'home';
 </script>
 
 <template>
+    <Navbar :navbarType="pageType"></Navbar>
     <Main></Main>
 </template>
 
