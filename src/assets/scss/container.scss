@@ -1,8 +1,8 @@
 .container {
-    max-width: 1170px;
+    max-width: 90%;
     padding: 70px 15px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 270px 1fr;
+    grid-template-columns: 270px 1fr 270px;
     grid-gap: 30px;
 }
