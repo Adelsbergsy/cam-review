@@ -6,10 +6,10 @@ const props = defineProps({
     openModal: Boolean,
 });
 const emit = defineEmits(['updateModalState']);
-let tmp = ref(props.openModal);
+let isOpened = ref(props.openModal);
 watch(
     () => props.openModal,
-    (newVal) => (tmp.value = newVal)
+    (newVal) => (isOpened.value = newVal)
 );
 const modalWindow = ref(null);
 const overlay = ref(null);
@@ -18,32 +18,36 @@ const body = document.querySelector('body');
 
 onMounted(() => {
     closeButton.value.addEventListener('click', () => {
-        tmp.value = false;
-        emit('updateModalState', tmp.value);
+        isOpened.value = false;
+        emit('updateModalState', isOpened.value);
     });
 
     body.addEventListener('keyup', (event) => {
         const key = event.code;
         console.log(key);
         if (key === 'Escape') {
-            tmp.value = false;
-            emit('updateModalState', tmp.value);
+            isOpened.value = false;
+            emit('updateModalState', isOpened.value);
         }
     });
     overlay.value.addEventListener('click', () => {
-        tmp.value = false;
-        emit('updateModalState', tmp.value);
+        isOpened.value = false;
+        emit('updateModalState', isOpened.value);
     });
 });
 </script>
 
 <template>
-    <div class="modal" :class="tmp ? 'modal_active' : ''" ref="modalWindow">
+    <div
+        class="modal"
+        :class="isOpened ? 'modal_active' : ''"
+        ref="modalWindow"
+    >
         <div class="modal__window">
-            <div class="modal__window__content">
+            <div class="modal__content">
                 <Icon></Icon>
             </div>
-            <button ref="closeButton" class="modal__window__button">
+            <button ref="closeButton" class="modal__button">
                 <img src="/src/assets/images/close.svg" alt="X" />
             </button>
         </div>

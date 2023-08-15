@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 
 async function weatherData(coords) {
     const response = await fetch('/api/v1/weather', {
@@ -136,12 +136,19 @@ const windDirection = ref();
 const weatherCode = ref();
 const weatherType = ref();
 const icon = ref();
+
+const isLoaded = ref(false);
+
+setTimeout(() => (isLoaded.value = true), 350);
 </script>
 
 <template>
     <h3 class="weather-title">Погода сейчас</h3>
     <template v-if="weatherAvailability">
-        <div class="weather-container">
+        <div
+            class="weather-container"
+            :class="!isLoaded ? 'weather-container_disabled' : ''"
+        >
             <img :src="icon" alt="icon" class="weather-container__icon" />
             <span class="weather-container__data">{{ weatherType }}</span>
             <span class="weather-container__data">
@@ -153,10 +160,11 @@ const icon = ref();
         </div>
     </template>
     <template v-else>
-        <div class="weather-container weather-container_no-data">
-            <span class="weather-container__data" id="no-weather"
-                >Погода недоступна</span
-            >
+        <div
+            class="weather-container weather-container_no-data"
+            :class="!isLoaded ? 'weather-container_disabled' : ''"
+        >
+            <span class="weather-container__data">Погода недоступна</span>
         </div>
     </template>
 </template>

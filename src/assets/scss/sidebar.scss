@@ -1,1 +1,11 @@
 @import url(weather.scss);
+@import url(ad.scss);
+
+.sidebar {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 15px;
+    border-radius: 20px;
+    border: 1px solid #0d1e40;
+    background-color: #0e1729;
+}

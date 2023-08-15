@@ -1,5 +1,6 @@
 <script setup>
-import { computed, inject } from 'vue';
+import { inject } from 'vue';
+import SideParallax from './SideParallax.vue';
 
 const props = defineProps({
     navbarType: String,
@@ -13,47 +14,42 @@ const reviewNames = inject('reviewNames', ['Первая статья']);
         <template v-if="props.navbarType === 'home'">
             <nav class="navbar">
                 <h2 class="navbar__title">Обзоры</h2>
-                <ul class="revbar__list">
-                    <li class="revbar__list__item">
+                <ul class="navbar-list">
+                    <li class="navbar-list__item">
                         <router-link to="/1">{{ reviewNames[0] }}</router-link>
                     </li>
-                    <!-- /.revbar__link -->
                 </ul>
-                <!-- /.revbar -->
             </nav>
-            <!-- <div id="teleport"></div> -->
+            <SideParallax></SideParallax>
         </template>
         <template v-else-if="props.navbarType === 'review'">
             <nav class="navbar">
                 <div class="navbar__current-review">
-                    <h4 class="navbar__current-review__title">
+                    <h3 class="navbar__title">
                         {{ reviewNames[0] }}
-                    </h4>
+                    </h3>
                 </div>
-                <ul class="navbar__list">
-                    <li class="navbar__list__item">
-                        <a href="#about-author" class="navbar__list__item__link"
+                <ul class="navbar-list">
+                    <li class="navbar-list__item">
+                        <a href="#about-author" class="navbar-list__link"
                             >Об авторе</a
                         >
                     </li>
-                    <li class="navbar__list__item">
+                    <li class="navbar-list__item">
                         <a
                             href="#cameras-characteristics"
-                            class="navbar__list__item__link"
+                            class="navbar-list__link"
                             >Характеристики обозреваемых фотоаппаратов</a
                         >
                     </li>
-                    <!-- /.navbar__list__item -->
                 </ul>
-                <!-- /.navbr__list -->
-
                 <div class="navbar__back-link">
                     <router-link to="/"
                         >Вернуться на главную страницу</router-link
                     >
                 </div>
-            </nav></template
-        >
+            </nav>
+        </template>
         <template v-else>
             <nav class="navbar error">
                 <div class="navbar__back-link">
@@ -63,7 +59,6 @@ const reviewNames = inject('reviewNames', ['Первая статья']);
                 </div>
             </nav>
         </template>
-        <div id="teleport"></div>
     </div>
 </template>
 

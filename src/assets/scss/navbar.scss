@@ -1,3 +1,5 @@
+@import url(side-parallax.scss);
+
 .navbar {
     display: flex;
     flex-flow: column nowrap;
@@ -10,13 +12,11 @@
     z-index: 1;
     margin-bottom: 400px;
 
-    .revbar__list__item,
-    .navbar__list__item {
+    &-list__item {
         margin-bottom: 10px;
     }
 
     a {
-        display: inline-block;
         text-decoration: none;
         color: #fff;
         transition: all 200ms ease-in-out;
@@ -29,13 +29,9 @@
             color: #c217a5;
         }
     }
-    &__title {
-        margin-bottom: 30px;
-        color: lightgoldenrodyellow;
-    }
 
     &__back-link {
-        margin-top: 20px;
+        padding-top: 20px;
 
         a {
             font-weight: bold;
@@ -47,12 +43,9 @@
         }
     }
 
-    &__current-review {
-        margin-bottom: 20px;
-
-        &__title {
-            color: #b34282;
-            text-shadow: 0px 0px 5px darkviolet;
-        }
+    &__title {
+        color: #b34282;
+        text-shadow: 0px 0px 5px darkviolet;
+        margin-bottom: 30px;
     }
 }

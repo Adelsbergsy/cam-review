@@ -11,21 +11,21 @@
 
         &__container {
             flex-basis: 60%;
+        }
 
-            &__table {
-                border-collapse: collapse;
+        &__table {
+            border-collapse: collapse;
 
-                td {
-                    border-bottom: 1px grey solid;
-                }
+            td {
+                border-bottom: 1px grey solid;
+            }
 
-                td:first-child {
-                    border-right: 1px grey solid;
-                }
+            td:first-child {
+                border-right: 1px grey solid;
+            }
 
-                tr:last-child td {
-                    border-bottom: none;
-                }
+            tr:last-child td {
+                border-bottom: none;
             }
         }
 

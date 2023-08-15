@@ -13,14 +13,15 @@
     display: flex;
     flex-wrap: wrap;
 
-    &_image {
+    &__image {
         margin-right: 20px;
         height: 250px;
         width: 200px;
         flex-basis: content;
         cursor: pointer;
     }
-    &_text {
+
+    &__text {
         flex-basis: 75%;
         font-size: 18px;
         text-align: justify;

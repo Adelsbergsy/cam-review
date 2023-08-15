@@ -20,6 +20,14 @@ const RevFill = defineAsyncComponent(() =>
 </script>
 
 <template>
-    <Navbar :navbarType="pageType"></Navbar>
-    <RevFill></RevFill>
+    <div class="container">
+        <Navbar :navbarType="pageType"></Navbar>
+        <RevFill></RevFill>
+    </div>
 </template>
+
+<style scoped lang="scss">
+.container {
+    grid-template-columns: 270px 1fr;
+}
+</style>

@@ -7,9 +7,11 @@ const pageType = 'home';
 </script>
 
 <template>
-    <Navbar :navbarType="pageType"></Navbar>
-    <Main></Main>
-    <Sidebar></Sidebar>
+    <div class="container">
+        <Navbar :navbarType="pageType"></Navbar>
+        <Main></Main>
+        <Sidebar></Sidebar>
+    </div>
 </template>
 
 <style scoped></style>
