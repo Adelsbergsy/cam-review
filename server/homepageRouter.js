@@ -10,6 +10,7 @@ router.get('/*', async (req, res) => {
         environment,
         manifest: await parseManifest(),
     };
+
     res.render('index.html.pug', data);
 });
 

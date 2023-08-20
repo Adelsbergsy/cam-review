@@ -1,0 +1,19 @@
+.author-info {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__image {
+        margin-right: 20px;
+        height: 250px;
+        width: 200px;
+        flex-basis: content;
+        cursor: pointer;
+    }
+
+    &__text {
+        flex-basis: 75%;
+        font-size: 18px;
+        text-align: justify;
+        line-height: 170%;
+    }
+}

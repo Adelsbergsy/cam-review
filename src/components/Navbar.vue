@@ -42,6 +42,17 @@ const reviewNames = inject('reviewNames', ['Первая статья']);
                             >Характеристики обозреваемых фотоаппаратов</a
                         >
                     </li>
+                    <li class="navbar-list__item">
+                        <a href="#zoom" class="navbar-list__link"
+                            >Пример работы зума</a
+                        >
+                    </li>
+                    <li class="navbar-list__item">
+                        <a href="#photo-overlay" class="navbar-list__link"
+                            >Сравнение качества фотографий, сделанных на обе
+                            камеры с одного ракурса</a
+                        >
+                    </li>
                 </ul>
                 <div class="navbar__back-link">
                     <router-link to="/"

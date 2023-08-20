@@ -7,7 +7,7 @@ import Tooltip from './Tooltip.vue';
         <h5 class="review-title" id="cameras-characteristics">
             Характеристики обозреваемых фотоаппаратов
         </h5>
-        <article class="camera-info">
+        <div class="camera-info">
             <div class="camera-info__container">
                 <table class="camera-info__table">
                     <tr>
@@ -74,8 +74,8 @@ import Tooltip from './Tooltip.vue';
                 />
                 <figcaption>Canon EOS 2000D</figcaption>
             </figure>
-        </article>
-        <article class="camera-info">
+        </div>
+        <div class="camera-info">
             <div class="camera-info__container">
                 <table class="camera-info__table">
                     <tr>
@@ -183,7 +183,7 @@ import Tooltip from './Tooltip.vue';
                 <img src="/src/assets/images/eos90d.webp" alt="Canon EOS 90D" />
                 <figcaption>Canon EOS 90D</figcaption>
             </figure>
-        </article>
+        </div>
         <Tooltip></Tooltip>
     </section>
 </template>

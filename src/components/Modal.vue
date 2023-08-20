@@ -6,11 +6,13 @@ const props = defineProps({
     openModal: Boolean,
 });
 const emit = defineEmits(['updateModalState']);
-let isOpened = ref(props.openModal);
+const isOpened = ref(props.openModal);
+
 watch(
     () => props.openModal,
     (newVal) => (isOpened.value = newVal)
 );
+
 const modalWindow = ref(null);
 const overlay = ref(null);
 const closeButton = ref(null);
@@ -24,7 +26,6 @@ onMounted(() => {
 
     body.addEventListener('keyup', (event) => {
         const key = event.code;
-        console.log(key);
         if (key === 'Escape') {
             isOpened.value = false;
             emit('updateModalState', isOpened.value);

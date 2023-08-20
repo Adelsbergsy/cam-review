@@ -3,11 +3,28 @@ import path from 'path';
 import homepageRouter from './homepageRouter.js';
 import assetsRouter from './assetsRouter.js';
 import { fileURLToPath } from 'url';
+import cors from 'cors';
+// import session from 'express-session';
+// import cookieParser from 'cookie-parser';
 
 const port = process.env.PORT || 3000;
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
+// const secret = 'camReview';
 
+// const sessionConfig = {
+//     secret,
+//     name: 'appName',
+//     //resave: false,
+//     saveUninitialized: false,
+//     cookie: {
+//         sameSite: 'none', // THIS is the config you are looing for.
+//     },
+// };
+
+app.use(cors());
+//app.use(cookieParser(secret));
+// app.use(session(sessionConfig));
 app.use(express.json());
 
 app.post('/api/v1/weather', (req, res) => {
