@@ -3,6 +3,8 @@
 @import url(cameras.scss);
 @import url(zoom.scss);
 @import url(photo-overlay.scss);
+@import url(summarizing.scss);
+@import url(gallery.scss);
 
 .review-title {
     margin: 0 auto 10px auto;
@@ -10,4 +12,10 @@
     font-size: 20px;
     text-align: center;
     text-shadow: 0 0 10px deeppink;
+}
+
+.text-container {
+    font-size: 18px;
+    line-height: 170%;
+    text-align: justify;
 }

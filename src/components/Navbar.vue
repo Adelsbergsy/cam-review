@@ -53,6 +53,14 @@ const reviewNames = inject('reviewNames', ['Первая статья']);
                             камеры с одного ракурса</a
                         >
                     </li>
+                    <li class="navbar-list__item">
+                        <a href="#summarizing" class="navbar-list__link"
+                            >Подведение итогов</a
+                        >
+                    </li>
+                    <li class="navbar-list__item">
+                        <a href="#gallery" class="navbar-list__link">Галерея</a>
+                    </li>
                 </ul>
                 <div class="navbar__back-link">
                     <router-link to="/"

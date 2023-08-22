@@ -1,16 +1,11 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 
 const width = ref(50);
 const leftPhoto = ref();
 function show() {
-    console.log(width.value);
     leftPhoto.value.style.width = width.value + '%';
 }
-onMounted(() => {
-    console.log(leftPhoto.value.style);
-    console.log(width.value + '%');
-});
 </script>
 
 <template>
@@ -20,10 +15,19 @@ onMounted(() => {
             ракурса
         </h5>
         <div class="text-container">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi
-            consectetur accusamus eaque dolores maiores nobis incidunt
-            provident? Accusamus molestias, ex, magni quo veritatis, hic
-            temporibus sunt repellat atque molestiae autem.
+            Качество фотографий, сделанных на Canon EOS 90D и Canon EOS 2000D с
+            одного ракурса, может зависеть от нескольких факторов, включая
+            разрешение датчика изображения, объективы, настройки и навыки
+            фотографа. Однако, в целом, Canon EOS 90D с его высоким разрешением
+            32,5 мегапикселя должен предложить более детализированные и более
+            четкие изображения по сравнению с Canon EOS 2000D с разрешением 24,1
+            мегапикселя. EOS 90D также обладает более продвинутой системой
+            автофокусировки, что может обеспечить более точное захватывание
+            объектов и улучшенную резкость фотографий. Однако, если используются
+            одинаковые объективы на обеих камерах и правильные настройки, можно
+            получить высококачественные фотографии и на Canon EOS 2000D. В
+            итоге, опыт и навык фотографа также сыграют важную роль в качестве
+            фотографий, независимо от модели камеры.
         </div>
         <div class="image-container">
             <div class="image-container__left-photo" ref="leftPhoto"></div>

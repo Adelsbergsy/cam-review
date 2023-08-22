@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import fs from 'fs';
 import homepageRouter from './homepageRouter.js';
 import assetsRouter from './assetsRouter.js';
 import { fileURLToPath } from 'url';
@@ -26,6 +27,13 @@ app.use(cors());
 //app.use(cookieParser(secret));
 // app.use(session(sessionConfig));
 app.use(express.json());
+
+app.get('/api/v1/galleryFiles', (req, res) => {
+    const galleryPath = path.resolve('./src/assets/images/gallery');
+    fs.readdir(galleryPath, 'utf8', (err, files) => {
+        res.json({ files });
+    });
+});
 
 app.post('/api/v1/weather', (req, res) => {
     const { latitude, longitude } = req.body;

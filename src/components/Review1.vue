@@ -5,6 +5,8 @@ import Introduction from './Introduction.vue';
 import Cameras from './Cameras.vue';
 import Zoom from './Zoom.vue';
 import PhotoOverlay from './PhotoOverlay.vue';
+import Summarizing from './Summarizing.vue';
+import Gallery from './Gallery.vue';
 
 const openModal = ref(false);
 
@@ -20,6 +22,8 @@ function checkModal(value) {
         <Cameras></Cameras>
         <Zoom></Zoom>
         <PhotoOverlay></PhotoOverlay>
+        <Summarizing></Summarizing>
+        <Gallery></Gallery>
     </article>
 </template>
 
