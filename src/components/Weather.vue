@@ -50,28 +50,28 @@ function defineWeatherType(code) {
         case 0:
         case 1:
             weatherType.value = 'Ясно';
-            icon.value = '../src/assets/images/sunny.svg';
+            icon.value = 'sunny.svg';
             break;
         case 2:
         case 3:
             weatherType.value = 'Облачно';
-            icon.value = '../src/assets/images/cloud.svg';
+            icon.value = 'cloud.svg';
             break;
         case 45:
         case 48:
             weatherType.value = 'Туман';
-            icon.value = '../src/assets/images/foggy.png';
+            icon.value = 'foggy.png';
             break;
         case 51:
         case 53:
         case 55:
             weatherType.value = 'Морось';
-            icon.value = '../src/assets/images/drizzle.svg';
+            icon.value = 'drizzle.svg';
             break;
         case 56:
         case 57:
             weatherType.value = 'Изморозь';
-            icon.value = '../src/assets/images/snow.svg';
+            icon.value = 'snow.svg';
             break;
         case 61:
         case 63:
@@ -82,7 +82,7 @@ function defineWeatherType(code) {
         case 81:
         case 82:
             weatherType.value = 'Дождь';
-            icon.value = '../src/assets/images/rainy.svg';
+            icon.value = 'rainy.svg';
             break;
         case 61:
         case 71:
@@ -92,17 +92,17 @@ function defineWeatherType(code) {
         case 85:
         case 86:
             weatherType.value = 'Снег';
-            icon.value = '../src/assets/images/snow.svg';
+            icon.value = 'snow.svg';
             break;
         case 95:
         case 96:
         case 99:
             weatherType.value = 'Гроза';
-            icon.value = '../src/assets/images/thunderstorm.svg';
+            icon.value = 'thunderstorm.svg';
             break;
         default:
             weatherType.value = 'Нет данных';
-            icon.value = '../src/assets/images/alert-circle.svg';
+            icon.value = 'alert-circle.svg';
             break;
     }
 }

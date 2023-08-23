@@ -16,7 +16,6 @@ watch(
 const modalWindow = ref(null);
 const overlay = ref(null);
 const closeButton = ref(null);
-const body = document.querySelector('body');
 
 onMounted(() => {
     closeButton.value.addEventListener('click', () => {
@@ -24,7 +23,7 @@ onMounted(() => {
         emit('updateModalState', isOpened.value);
     });
 
-    body.addEventListener('keyup', (event) => {
+    document.body.addEventListener('keyup', (event) => {
         const key = event.code;
         if (key === 'Escape') {
             isOpened.value = false;

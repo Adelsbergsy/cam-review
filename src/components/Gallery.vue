@@ -3,51 +3,70 @@ import { ref } from 'vue';
 
 const counter = ref(1);
 const path = ref();
+const length = ref();
+const curPhoto = ref();
 const modalWindow = ref();
+const closeButton = ref();
+const timerId = ref();
 
 function toggleSlide(mode) {
-    async function getFiles() {
-        const response = await fetch('/api/v1/galleryFiles');
-        const result = await response.json();
-        const length = result.files.length;
-
-        if (mode === 'next') {
-            if (counter.value < length) {
-                counter.value++;
-            } else {
-                counter.value = 1;
-            }
-        } else if (mode === 'prev') {
-            if (counter.value > 1) {
-                counter.value--;
-            } else {
-                counter.value = length;
-            }
+    if (mode === 'next') {
+        if (counter.value < length.value) {
+            counter.value++;
+        } else {
+            counter.value = 1;
         }
-
-        const curPhoto = result.files[counter.value - 1];
-        path.value = `src/assets/images/gallery/${curPhoto}`;
+    } else if (mode === 'prev') {
+        if (counter.value > 1) {
+            counter.value--;
+        } else {
+            counter.value = length.value;
+        }
     }
-
-    getFiles();
+    clearTimeout(timerId.value);
+    setSettings();
 }
 
-async function getDefaultPhoto() {
+async function setSettings() {
     const response = await fetch('/api/v1/galleryFiles');
     const result = await response.json();
-    const photo = result.files[0];
-    path.value = `src/assets/images/gallery/${photo}`;
+    length.value = result.files.length;
+    curPhoto.value = result.files[counter.value - 1];
+    path.value = `gallery/${curPhoto.value}`;
+
+    timerId.value = setTimeout(function autoToggle() {
+        if (counter.value < length.value) {
+            counter.value++;
+        } else {
+            counter.value = 1;
+        }
+        curPhoto.value = result.files[counter.value - 1];
+        path.value = `gallery/${curPhoto.value}`;
+
+        timerId.value = setTimeout(autoToggle, 5000);
+    }, 5000);
+}
+
+function pressEsc(event) {
+    const key = event.code;
+    if (key === 'Escape') {
+        closeWindow();
+    }
 }
 
 function openWindow() {
+    clearTimeout(timerId.value);
     modalWindow.value.showModal();
+    document.body.addEventListener('keyup', pressEsc);
 }
 
 function closeWindow() {
     modalWindow.value.close();
+    document.body.removeEventListener('keyup', pressEsc);
+    setSettings();
 }
 
-getDefaultPhoto();
+setSettings();
 </script>
 
 <template>
@@ -75,7 +94,11 @@ getDefaultPhoto();
         </div>
         <dialog class="modalWindow" ref="modalWindow">
             <img :src="path" alt="photo" class="modalWindow__photo" />
-            <button @click="closeWindow" class="modalWindow__close">
+            <button
+                @click="closeWindow"
+                class="modalWindow__close"
+                ref="closeButton"
+            >
                 &#10005;
             </button>
         </dialog>
