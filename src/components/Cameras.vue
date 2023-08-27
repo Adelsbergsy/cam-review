@@ -1,5 +1,14 @@
 <script setup>
+import { onMounted } from 'vue';
 import Tooltip from './Tooltip.vue';
+
+const emit = defineEmits(['transmitRef']);
+
+onMounted(() => {
+    const id = document.getElementById('cameras-characteristics').id;
+    const text = document.getElementById('cameras-characteristics').innerText;
+    emit('transmitRef', id, text);
+});
 </script>
 
 <template>

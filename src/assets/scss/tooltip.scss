@@ -1,5 +1,6 @@
 .tooltip {
     margin-top: 20px;
+    margin-right: 10px;
     text-align: end;
 
     .description {
@@ -30,6 +31,10 @@
             visibility: hidden;
             opacity: 0;
             transition: all ease-in-out 100ms;
+            @media screen and (max-width: 576px) {
+                width: 200px;
+                font-size: 14px;
+            }
             &::selection {
                 color: aqua;
             }

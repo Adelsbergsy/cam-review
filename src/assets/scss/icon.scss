@@ -16,12 +16,25 @@
                 margin-right: 150px;
             }
         }
+        @media screen and (max-width: 576px) {
+            @keyframes logoMove {
+                from {
+                    margin-right: 0;
+                }
+                to {
+                    margin-right: 60px;
+                }
+            }
+        }
     }
 
     &__text {
         position: relative;
         font-size: 22px;
         color: #c217a5;
+        @media screen and (max-width: 576px) {
+            font-size: 18px;
+        }
 
         &:active {
             color: yellow;

@@ -10,7 +10,7 @@ const pageType = 'home';
     <div class="container">
         <Navbar :navbarType="pageType"></Navbar>
         <Main></Main>
-        <Sidebar></Sidebar>
+        <Sidebar id="sidebar"></Sidebar>
     </div>
 </template>
 

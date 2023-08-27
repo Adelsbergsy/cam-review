@@ -1,6 +1,8 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
+const emit = defineEmits(['transmitRef']);
+
 const zoomSteps = 6;
 
 const firstTarget = ref();
@@ -91,33 +93,33 @@ function imageToggle(num, cont) {
     if (cont === 1) {
         switch (num) {
             case 1:
-                return 'https://goo.su/nZ74';
+                return 'zoom/2000D/600.jpg';
             case 2:
-                return 'https://clck.ru/35MQpy';
+                return 'zoom/2000D/400.jpg';
             case 3:
-                return 'https://di1w2o32ai2v6.cloudfront.net/images/detailed/5/2022_iem7-n0.jpg?t=1648174681';
+                return 'zoom/2000D/300.jpg';
             case 4:
-                return 'https://clck.ru/35MQtw';
+                return 'zoom/2000D/250.jpg';
             case 5:
-                return 'https://clck.ru/35MQsi';
+                return 'zoom/2000D/200.jpg';
             case 6:
-                return 'https://clck.ru/35LbaR';
+                return 'zoom/2000D/150.jpg';
         }
     }
     if (cont === 2) {
         switch (num) {
             case 7:
-                return 'https://goo.su/nZ74';
+                return 'zoom/90D/600.jpg';
             case 8:
-                return 'https://clck.ru/35MQpy';
+                return 'zoom/90D/400.jpg';
             case 9:
-                return 'https://di1w2o32ai2v6.cloudfront.net/images/detailed/5/2022_iem7-n0.jpg?t=1648174681';
+                return 'zoom/90D/300.jpg';
             case 10:
-                return 'https://clck.ru/35MQtw';
+                return 'zoom/90D/250.jpg';
             case 11:
-                return 'https://clck.ru/35MQsi';
+                return 'zoom/90D/200.jpg';
             case 12:
-                return 'https://clck.ru/35LbaR';
+                return 'zoom/90D/150.jpg';
         }
     }
 }
@@ -134,6 +136,11 @@ onMounted(() => {
     secondTarget.value.classList.add(
         'image-container__zoom-scale-button_selected'
     );
+
+    const id = document.getElementById('zoom').id;
+    const text = document.getElementById('zoom').innerText;
+
+    emit('transmitRef', id, text);
 });
 </script>
 
@@ -181,7 +188,11 @@ onMounted(() => {
                 >
                     -
                 </button>
-                <img :src="imageToggle(firstTargetNum, 1)" alt="Photo" />
+                <img
+                    :src="imageToggle(firstTargetNum, 1)"
+                    class="image-container__photo"
+                    alt="Photo"
+                />
                 <figcaption>
                     Фотографии, сделанные на Canon EOS 2000D при разной степени
                     приближения
@@ -205,7 +216,11 @@ onMounted(() => {
                 >
                     -
                 </button>
-                <img :src="imageToggle(secondTargetNum, 2)" alt="Photo" />
+                <img
+                    :src="imageToggle(secondTargetNum, 2)"
+                    class="image-container__photo"
+                    alt="Photo"
+                />
                 <figcaption>
                     Фотографии, сделанные на Canon EOS 90D при разной степени
                     приближения

@@ -8,13 +8,18 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        justify-content: center;
 
         &__container {
             flex-basis: 60%;
         }
 
         &__table {
+            margin: auto;
             border-collapse: collapse;
+            @media screen and (max-width: 1200px) {
+                width: 300px;
+            }
 
             td {
                 border-bottom: 1px grey solid;
@@ -43,6 +48,11 @@
                     transform: scale(1.1) skewX(-2deg);
                 }
             }
+        }
+    }
+    .review-title {
+        @media screen and (max-width: 1200px) {
+            margin-bottom: 40px;
         }
     }
 }

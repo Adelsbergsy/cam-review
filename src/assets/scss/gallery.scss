@@ -1,7 +1,13 @@
 .image-container {
     position: relative;
-    width: 50%;
+    width: 60%;
     margin: 50px auto;
+    @media screen and (max-width: 1200px) {
+        width: 600px;
+    }
+    @media screen and (max-width: 576px) {
+        width: 300px;
+    }
 
     &__slide {
         border: 1px solid black;
@@ -9,7 +15,6 @@
         object-fit: cover;
         box-shadow: 0 0 30px purple;
         cursor: zoom-in;
-        height: 500px;
     }
 
     &__toggle-slide {

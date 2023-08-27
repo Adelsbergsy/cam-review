@@ -1,5 +1,7 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+
+const emit = defineEmits(['transmitRef']);
 
 const counter = ref(1);
 const path = ref();
@@ -67,12 +69,19 @@ function closeWindow() {
 }
 
 setSettings();
+
+onMounted(() => {
+    const id = document.getElementById('gallery').id;
+    const text = document.getElementById('gallery').innerText;
+
+    emit('transmitRef', id, text);
+});
 </script>
 
 <template>
     <section class="gallery">
         <h5 class="review-title" id="gallery">Галерея</h5>
-        <div class="image-container">
+        <div class="image-container" id="gal">
             <img
                 class="image-container__slide"
                 :src="path"

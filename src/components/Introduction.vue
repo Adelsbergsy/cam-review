@@ -1,20 +1,32 @@
 <script setup>
 import { ref, onMounted } from 'vue';
+import Modal from './Modal.vue';
+
+const emit = defineEmits(['transmitRef']);
+
 const author = ref();
 
-const props = defineProps({
-    updateModalState: Function,
-});
+const openModal = ref(false);
+
+function checkModal(value) {
+    openModal.value = value;
+}
 
 onMounted(() => {
     author.value.addEventListener('click', () => {
-        props.updateModalState(true);
+        openModal.value = true;
     });
+
+    const id = document.getElementById('about-author').id;
+    const text = document.getElementById('about-author').innerText;
+
+    emit('transmitRef', id, text);
 });
 </script>
 
 <template>
     <section class="introduction">
+        <Modal :openModal="openModal" @updateModalState="checkModal"></Modal>
         <div class="author-info">
             <h5 class="author-info__title review-title" id="about-author">
                 Об авторе

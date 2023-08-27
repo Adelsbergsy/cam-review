@@ -1,6 +1,6 @@
 <script setup>
-import { ref } from 'vue';
-import Modal from './Modal.vue';
+import { reactive, onMounted } from 'vue';
+
 import Introduction from './Introduction.vue';
 import Cameras from './Cameras.vue';
 import Zoom from './Zoom.vue';
@@ -8,22 +8,28 @@ import PhotoOverlay from './PhotoOverlay.vue';
 import Summarizing from './Summarizing.vue';
 import Gallery from './Gallery.vue';
 
-const openModal = ref(false);
+const emit = defineEmits(['transmitRefsList']);
 
-function checkModal(value) {
-    openModal.value = value;
+const refsList = reactive({ id: [], text: [] });
+
+function addRef(id, text) {
+    refsList.id.push(id);
+    refsList.text.push(text);
 }
+
+onMounted(() => {
+    emit('transmitRefsList', refsList);
+});
 </script>
 
 <template>
     <article class="review-container">
-        <Modal :openModal="openModal" @updateModalState="checkModal"></Modal>
-        <Introduction :updateModalState="checkModal"></Introduction>
-        <Cameras></Cameras>
-        <Zoom></Zoom>
-        <PhotoOverlay></PhotoOverlay>
-        <Summarizing></Summarizing>
-        <Gallery></Gallery>
+        <Introduction @transmitRef="addRef"></Introduction>
+        <Cameras @transmitRef="addRef"></Cameras>
+        <Zoom @transmitRef="addRef"></Zoom>
+        <PhotoOverlay @transmitRef="addRef"></PhotoOverlay>
+        <Summarizing @transmitRef="addRef"></Summarizing>
+        <Gallery @transmitRef="addRef"></Gallery>
     </article>
 </template>
 

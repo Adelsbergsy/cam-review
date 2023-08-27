@@ -1,7 +1,7 @@
 .ad-container {
     margin-top: 50px;
     padding: 20px;
-    height: 400px;
+    height: 400px !important;
     border-radius: 10px;
     background-color: #fff;
     display: flex;
@@ -9,13 +9,19 @@
     text-align: center;
     user-select: none;
     cursor: default;
+    grid-area: ad;
 
     &__link {
         color: black;
         text-decoration: none;
+        margin: auto;
 
         &:hover {
             text-decoration: underline;
         }
+    }
+
+    @media screen and (max-width: 998px) {
+        height: auto;
     }
 }

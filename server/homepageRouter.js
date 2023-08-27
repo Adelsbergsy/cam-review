@@ -11,7 +11,7 @@ router.get('/*', async (req, res) => {
         manifest: await parseManifest(),
     };
 
-    res.render('index.html.pug', data);
+    res.render('index.pug', data);
 });
 
 const parseManifest = async () => {

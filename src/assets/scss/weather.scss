@@ -1,5 +1,6 @@
 .weather-title {
     margin: 10px auto 20px;
+    grid-area: weather-title;
 }
 
 .weather-container {
@@ -10,6 +11,7 @@
     row-gap: 15px;
     background-color: #4d258a;
     height: 152px;
+    grid-area: weather;
 
     &__icon {
         height: 50px;

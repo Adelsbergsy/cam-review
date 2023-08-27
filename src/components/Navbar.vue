@@ -4,6 +4,8 @@ import SideParallax from './SideParallax.vue';
 
 const props = defineProps({
     navbarType: String,
+    refsId: Array,
+    refsText: Array,
 });
 
 const reviewNames = inject('reviewNames', ['Первая статья']);
@@ -23,43 +25,20 @@ const reviewNames = inject('reviewNames', ['Первая статья']);
             <SideParallax></SideParallax>
         </template>
         <template v-else-if="props.navbarType === 'review'">
-            <nav class="navbar">
+            <nav class="navbar navbar-review">
                 <div class="navbar__current-review">
                     <h3 class="navbar__title">
                         {{ reviewNames[0] }}
                     </h3>
                 </div>
                 <ul class="navbar-list">
-                    <li class="navbar-list__item">
-                        <a href="#about-author" class="navbar-list__link"
-                            >Об авторе</a
-                        >
-                    </li>
-                    <li class="navbar-list__item">
-                        <a
-                            href="#cameras-characteristics"
-                            class="navbar-list__link"
-                            >Характеристики обозреваемых фотоаппаратов</a
-                        >
-                    </li>
-                    <li class="navbar-list__item">
-                        <a href="#zoom" class="navbar-list__link"
-                            >Пример работы зума</a
-                        >
-                    </li>
-                    <li class="navbar-list__item">
-                        <a href="#photo-overlay" class="navbar-list__link"
-                            >Сравнение качества фотографий, сделанных на обе
-                            камеры с одного ракурса</a
-                        >
-                    </li>
-                    <li class="navbar-list__item">
-                        <a href="#summarizing" class="navbar-list__link"
-                            >Подведение итогов</a
-                        >
-                    </li>
-                    <li class="navbar-list__item">
-                        <a href="#gallery" class="navbar-list__link">Галерея</a>
+                    <li
+                        v-for="(id, index) in props.refsId"
+                        class="navbar-list__item"
+                    >
+                        <a :href="`#${id}`" class="navbar-list__link">{{
+                            props.refsText[index]
+                        }}</a>
                     </li>
                 </ul>
                 <div class="navbar__back-link">
@@ -70,7 +49,7 @@ const reviewNames = inject('reviewNames', ['Первая статья']);
             </nav>
         </template>
         <template v-else>
-            <nav class="navbar error">
+            <nav class="navbar navbar-error">
                 <div class="navbar__back-link">
                     <router-link to="/"
                         >Вернуться на главную страницу</router-link
@@ -82,13 +61,26 @@ const reviewNames = inject('reviewNames', ['Первая статья']);
 </template>
 
 <style scoped lang="scss">
-.error {
+.navbar-review h3,
+a {
+    @media screen and (max-width: 998px) {
+        display: block;
+        text-align: center !important;
+    }
+}
+.navbar-review {
+    @media screen and (max-width: 576px) {
+        width: 300px;
+    }
+}
+
+.navbar-error {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translateX(-50%);
-}
-.navbar__back-link {
-    margin-top: 0px;
+    .navbar__back-link {
+        margin-top: -20px;
+    }
 }
 </style>

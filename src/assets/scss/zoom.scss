@@ -6,6 +6,10 @@
 
     .review-title {
         grid-column: 1/3;
+
+        @media screen and (max-width: 1200px) {
+            grid-column: unset;
+        }
     }
 
     .text-container {
@@ -15,7 +19,14 @@
     .image-container {
         position: relative;
         width: 600px;
-        min-height: 400px;
+        margin: auto;
+        @media screen and (max-width: 576px) {
+            width: 300px;
+        }
+
+        &__photo {
+            max-height: 700px;
+        }
 
         &__zoom-button,
         &__zoom-scale-button {
@@ -67,5 +78,9 @@
             font-size: 15px;
             text-align: center;
         }
+    }
+
+    @media screen and (max-width: 1200px) {
+        grid-template-columns: 1fr;
     }
 }

@@ -1,11 +1,20 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+
+const emit = defineEmits(['transmitRef']);
 
 const width = ref(50);
 const leftPhoto = ref();
 function show() {
     leftPhoto.value.style.width = width.value + '%';
 }
+
+onMounted(() => {
+    const id = document.getElementById('photo-overlay').id;
+    const text = document.getElementById('photo-overlay').innerText;
+
+    emit('transmitRef', id, text);
+});
 </script>
 
 <template>
@@ -33,7 +42,7 @@ function show() {
             <div class="image-container__left-photo" ref="leftPhoto"></div>
             <img
                 class="image-container__right-photo"
-                src="https://goo.su/7VRjXEU"
+                src="/src/assets/images/90D.png"
                 alt="Photo"
             />
         </div>

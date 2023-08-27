@@ -8,6 +8,7 @@
     border-radius: 20px;
     background-color: whitesmoke;
     user-select: none;
+    grid-area: calendar;
 
     &__head {
         tr:last-child {

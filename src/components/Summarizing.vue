@@ -1,4 +1,15 @@
-<script setup></script>
+<script setup>
+import { onMounted } from 'vue';
+
+const emit = defineEmits(['transmitRef']);
+
+onMounted(() => {
+    const id = document.getElementById('summarizing').id;
+    const text = document.getElementById('summarizing').innerText;
+
+    emit('transmitRef', id, text);
+});
+</script>
 
 <template>
     <section class="summarizing">

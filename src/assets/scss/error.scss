@@ -5,7 +5,15 @@
     transform: translateX(-50%);
     text-align: center;
 }
-.error-title {
+
+.error-container {
     margin-top: 50px;
+    width: 90%;
+    @media screen and (max-width: 576px) {
+        font-size: 12px;
+    }
+}
+
+.error-title {
     text-shadow: 0 0 5px #c20433;
 }

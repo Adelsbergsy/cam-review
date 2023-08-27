@@ -1,3 +1,5 @@
+@import url(modal.scss);
+
 .author-info {
     display: flex;
     flex-wrap: wrap;
@@ -12,5 +14,19 @@
 
     &__text {
         flex-basis: 75%;
+        @media screen and (max-width: 1200px) {
+            flex-basis: 70%;
+        }
+    }
+    @media screen and (max-width: 998px) {
+        width: 700px;
+        margin: auto;
+    }
+    @media screen and (max-width: 576px) {
+        flex-wrap: nowrap;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 350px;
     }
 }
