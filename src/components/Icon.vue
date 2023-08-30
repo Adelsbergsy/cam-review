@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-    <a href="https://www.instagram.com/preda10r" class="icon-link">
+    <a href="https://www.instagram.com/predator" class="icon-link">
         <img
             src="/src/assets/images/logo-instagram.svg"
             alt="instagram"

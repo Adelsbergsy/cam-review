@@ -18,13 +18,13 @@
             'weather-title ad'
             'weather ad'
             'calendar ad';
-        min-width: 90%;
+        width: 90%;
         margin: 0 auto;
     }
 
     @media screen and (max-width: 576px) {
         display: flex;
-        min-width: 300px;
+        width: 300px;
         margin: 30px auto;
         padding: 10px 20px 40px;
     }

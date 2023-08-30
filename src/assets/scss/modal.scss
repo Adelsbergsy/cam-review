@@ -32,7 +32,10 @@
         background-color: #252635;
         box-shadow: 0px 0px 10px #c217a5;
         border-radius: 10px;
-        width: 300px;
+        width: 500px;
+        @media screen and (max-width: 576px) {
+            width: 300px;
+        }
         z-index: 1;
     }
 

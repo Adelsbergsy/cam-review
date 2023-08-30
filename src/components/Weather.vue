@@ -41,7 +41,7 @@ function yesGeoData(data) {
     weatherData(coords);
 }
 
-function noGeoData(data) {
+function noGeoData() {
     weatherAvailability.value = false;
 }
 

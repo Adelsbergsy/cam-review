@@ -1,12 +1,18 @@
 import express from 'express';
 import path from 'path';
 import fs from 'fs';
+import https from 'https';
 import homepageRouter from './homepageRouter.js';
 import assetsRouter from './assetsRouter.js';
 
 const port = process.env.PORT || 3000;
 
 const app = express();
+
+const options = {
+    key: fs.readFileSync('./tls/private_key.pem'),
+    cert: fs.readFileSync('./tls/certificate_full_chain.pem'),
+};
 
 app.use(express.json());
 
@@ -55,6 +61,10 @@ app.use('/', (req, res) => {
     res.status(404).send('Incorrect address');
 });
 
-app.listen(port, () => {
+https.createServer(options, app).listen(port, () => {
     console.log('Server listening on port', port);
 });
+
+// app.listen(port, () => {
+//     console.log('Server listening on port', port);
+// });
